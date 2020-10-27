@@ -14,13 +14,12 @@ export function matomo(state = {}, action = {}) {
         });
 
         const content = action.result;
-        const rv = matomoInstance.trackPageView({
+        matomoInstance.trackPageView({
           documentTitle: content.title || 'untitled',
           href: content['@id']
             .replace(settings.apiPath, '')
             .replace(settings.internalApiPath, ''),
         });
-        console.log('Y', { content, rv });
       }
       return state;
     default:

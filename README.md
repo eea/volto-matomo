@@ -5,9 +5,14 @@
 
 ## Features
 
-###
-
-Demo GIF
+* sets up a reducer called `matomo`.
+* uses the `GET_CONTENT` action type constant
+* does something only in client (browser) context
+* reads the settings:
+  * `settings.matomoSiteId`
+  * `settings.matomoUrlBase` (if not available it uses: `https://matomo.eea.europa.eu/`)
+* writes the `settings.matomoInstance` setting
+* lazy-loads the Matomo instance
 
 ## Getting started
 
