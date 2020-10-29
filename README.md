@@ -5,6 +5,7 @@
 
 ## Features
 
+Ping Matomo on each `GET_CONTENT_SUCCESS`
 * sets up a reducer called `matomo`.
 * uses the `GET_CONTENT` action type constant
 * does something only in client (browser) context
