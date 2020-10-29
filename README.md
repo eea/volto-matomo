@@ -5,15 +5,14 @@
 
 ## Features
 
-Ping Matomo on each `GET_CONTENT_SUCCESS`
-* sets up a reducer called `matomo`.
-* uses the `GET_CONTENT` action type constant
-* does something only in client (browser) context
-* reads the settings:
+Integrate [Matomo](https://matomo.org/) with Volto sites. At this moment there is a very basic integration that just pings matomo on each router location change.
+
+To configure it, either set the following variables:
+
   * `settings.matomoSiteId`
   * `settings.matomoUrlBase` (if not available it uses: `https://matomo.eea.europa.eu/`)
-* writes the `settings.matomoInstance` setting
-* lazy-loads the Matomo instance
+
+or `RAZZLE_MATOMO_SITE_ID` and `RAZZLE_MATOMO_URL`
 
 ## Getting started
 
