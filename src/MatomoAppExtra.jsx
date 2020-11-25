@@ -8,7 +8,7 @@ export const MatomoAppExtra = (props) => {
   }, [props.content]);
 
   React.useEffect(() => {
-    trackPageView({ href });
+    trackPageView({ href, documentTitle: document.title });
   }, [href]);
 
   return <React.Fragment />;

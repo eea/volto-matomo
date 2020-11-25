@@ -1,11 +1,8 @@
-import { matomo } from './reducers';
 import { MatomoAppExtra } from './MatomoAppExtra';
 
 const applyConfig = (config) => {
-  config.addonReducers.matomo = matomo;
-
   config.settings.appExtras = [
-    ...config.settings.appExtras,
+    ...(config.settings.appExtras || []),
     {
       match: '',
       component: MatomoAppExtra,
