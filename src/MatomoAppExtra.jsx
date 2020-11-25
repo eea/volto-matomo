@@ -3,13 +3,13 @@ import { flattenToAppURL } from '@plone/volto/helpers';
 import { trackPageView } from './utils';
 
 export const MatomoAppExtra = (props) => {
-  const url = React.useMemo(() => {
+  const href = React.useMemo(() => {
     return flattenToAppURL(props.content['@id']);
   }, [props.content]);
 
   React.useEffect(() => {
-    trackPageView(url);
-  }, [url]);
+    trackPageView({ href });
+  }, [href]);
 
   return <React.Fragment />;
 };
