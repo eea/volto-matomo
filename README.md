@@ -5,14 +5,25 @@
 
 ## Features
 
-Integrate [Matomo](https://matomo.org/) with Volto sites. At this moment there is a very basic integration that just pings matomo on each router location change.
+Integrates [Matomo](https://matomo.org/) with Volto sites. At this moment there is a very basic integration that just pings Matomo on each router location change.
 
 To configure it, either set the following variables:
 
-  * `settings.matomoSiteId`
+  * `settings.matomoSiteId` (if not available it uses: `1`)
   * `settings.matomoUrlBase` (if not available it uses: `https://matomo.eea.europa.eu/`)
 
-or `RAZZLE_MATOMO_SITE_ID` and `RAZZLE_MATOMO_URL`
+or `RAZZLE_MATOMO_SITE_ID` and `RAZZLE_MATOMO_URL` environment variables.
+
+## API
+
+There are two exports in `utils.js` (which can be imported from `volto-matomo/utils`, including from other Volto addons):
+
+1. `trackPageView({ href, ...options }) : void` - takes an object with `href` and other options and sends to Matomo a page view track;
+2. `trackEvent(options) : void` - takes an `options` object parameter and sends to Matomo an event track.
+
+Note that the Matomo instance is behind the scenes lazy-loaded and cached.
+
+The default behavior of volto-matomo is a call to `trackPageView` in `utils.js`, with the `href` and `documentTitle` options, on every URL change as recorded by the `AppExtras` component in Volto. The `href` is taken from `props.content['@id']` received by the `MatomoAppExtra.jsx` component. The `utils.js` file exposes just a part of the Matomo React API. If you wish to extend it or to understand it better, [this link](https://github.com/Amsterdam/matomo-tracker/tree/master/packages/react) might be helpful.
 
 ## Getting started
 
@@ -24,7 +35,7 @@ or `RAZZLE_MATOMO_SITE_ID` and `RAZZLE_MATOMO_URL`
     ```
 
 1. Update `package.json`:
-    ``` JSON
+    ```json
     "addons": [
         "@eeacms/volto-matomo"
     ],
