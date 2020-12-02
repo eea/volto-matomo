@@ -21,7 +21,7 @@
   },
   "scripts": {
     "release": "release-it",
-    "bootstrap": "./bootstrap"
+    "bootstrap": "node bootstrap"
   },
   "dependencies": {
     "@datapunt/matomo-tracker-react": "0.3.1"
