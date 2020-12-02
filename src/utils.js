@@ -12,21 +12,26 @@ const _matomo = {};
 const doWithMatomo = (fn) => {
   if (__CLIENT__) {
     if (!_matomo.instance) {
-      const siteId =
-        window.env?.RAZZLE_MATOMO_SITE_ID || settings.matomoSiteId || 1;
+      const siteId = window.env?.RAZZLE_MATOMO_SITE_ID || settings.matomoSiteId;
 
       const urlBase =
         window.env?.RAZZLE_MATOMO_URL ||
         settings.matomoUrlBase ||
         'https://matomo.eea.europa.eu/';
 
-      _matomo.instance = createInstance({
-        urlBase,
-        siteId,
-      });
+      if (siteId) {
+        _matomo.instance = createInstance({
+          urlBase,
+          siteId,
+        });
+      } else {
+        console.warn(
+          'Matomo SiteID is not defined, page actions will not be tracked',
+        );
+      }
     }
 
-    fn(_matomo.instance);
+    if (_matomo.instance) fn(_matomo.instance);
   }
 };
 
