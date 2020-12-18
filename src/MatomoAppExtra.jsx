@@ -5,7 +5,7 @@ import { trackPageView } from './utils';
 export const MatomoAppExtra = ({ location, content, ...rest }) => {
   const { pathname } = location;
 
-  const href = flattenToAppURL(content['@id']);
+  const href = flattenToAppURL(content?.['@id'] || '');
   const title = content?.title;
   const baseUrl = getBaseUrl(pathname) || '/';
 
