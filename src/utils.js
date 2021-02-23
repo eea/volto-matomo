@@ -1,5 +1,5 @@
-import { createInstance } from '@datapunt/matomo-tracker-react';
-import { settings } from '~/config';
+import { createInstance } from "@datapunt/matomo-tracker-react";
+import { settings } from "~/config";
 
 /**
  * NOTE: this file exposes just a part of the Matomo React API. If you wish to
@@ -17,7 +17,7 @@ const doWithMatomo = (fn) => {
       const urlBase =
         window.env?.RAZZLE_MATOMO_URL ||
         settings.matomoUrlBase ||
-        'https://matomo.eea.europa.eu/';
+        "https://matomo.eea.europa.eu/";
 
       if (siteId) {
         _matomo.instance = createInstance({
@@ -25,8 +25,9 @@ const doWithMatomo = (fn) => {
           siteId,
         });
       } else {
+        /* eslint-disable no-console */
         console.warn(
-          'Matomo SiteID is not defined, page actions will not be tracked',
+          "Matomo SiteID is not defined, page actions will not be tracked"
         );
       }
     }
