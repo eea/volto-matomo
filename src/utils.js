@@ -1,5 +1,5 @@
 import { createInstance } from '@datapunt/matomo-tracker-react';
-import { settings } from '~/config';
+import config from '@plone/volto/registry';
 
 /**
  * NOTE: this file exposes just a part of the Matomo React API. If you wish to
@@ -12,11 +12,12 @@ const _matomo = {};
 const doWithMatomo = (fn) => {
   if (__CLIENT__) {
     if (!_matomo.instance) {
-      const siteId = window.env?.RAZZLE_MATOMO_SITE_ID || settings.matomoSiteId;
+      const siteId =
+        window.env?.RAZZLE_MATOMO_SITE_ID || config.settings.matomoSiteId;
 
       const urlBase =
         window.env?.RAZZLE_MATOMO_URL ||
-        settings.matomoUrlBase ||
+        config.settings.matomoUrlBase ||
         'https://matomo.eea.europa.eu/';
 
       if (siteId) {
@@ -25,6 +26,7 @@ const doWithMatomo = (fn) => {
           siteId,
         });
       } else {
+        /* eslint-disable-next-line */
         console.warn(
           'Matomo SiteID is not defined, page actions will not be tracked',
         );
