@@ -20,6 +20,7 @@ There are two exports in `utils.js` (which can be imported from `volto-matomo/ut
 
 1. `trackPageView({ href, ...options }) : void` - takes an object with `href` and other options and sends to Matomo a page view track;
 2. `trackEvent(options) : void` - takes an `options` object parameter and sends to Matomo an event track.
+2. `trackSiteSearch(options) : void` - takes an `options` object parameter and sends to Matomo an site search track.
 
 Note that the Matomo instance is behind the scenes lazy-loaded and cached.
 
