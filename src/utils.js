@@ -51,3 +51,9 @@ export const trackEvent = (options) => {
     m.trackEvent(options);
   });
 };
+
+export const trackSiteSearch = (options) => {
+  doWithMatomo((m) => {
+    m.trackSiteSearch(options);
+  });
+};
