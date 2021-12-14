@@ -1,6 +1,19 @@
 # volto-matomo
 [![Releases](https://img.shields.io/github/v/release/eea/volto-matomo)](https://github.com/eea/volto-matomo/releases)
 
+[![Pipeline](https://ci.eionet.europa.eu/buildStatus/icon?job=volto-addons%2Fvolto-matomo%2Fmaster&subject=master)](https://ci.eionet.europa.eu/view/Github/job/volto-addons/job/volto-matomo/job/master/display/redirect)
+[![Lines of Code](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-matomo-master&metric=ncloc)](https://sonarqube.eea.europa.eu/dashboard?id=volto-matomo-master)
+[![Coverage](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-matomo-master&metric=coverage)](https://sonarqube.eea.europa.eu/dashboard?id=volto-matomo-master)
+[![Bugs](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-matomo-master&metric=bugs)](https://sonarqube.eea.europa.eu/dashboard?id=volto-matomo-master)
+[![Duplicated Lines (%)](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-matomo-master&metric=duplicated_lines_density)](https://sonarqube.eea.europa.eu/dashboard?id=volto-matomo-master)
+
+[![Pipeline](https://ci.eionet.europa.eu/buildStatus/icon?job=volto-addons%2Fvolto-matomo%2Fdevelop&subject=develop)](https://ci.eionet.europa.eu/view/Github/job/volto-addons/job/volto-matomo/job/develop/display/redirect)
+[![Lines of Code](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-matomo-develop&metric=ncloc)](https://sonarqube.eea.europa.eu/dashboard?id=volto-matomo-develop)
+[![Coverage](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-matomo-develop&metric=coverage)](https://sonarqube.eea.europa.eu/dashboard?id=volto-matomo-develop)
+[![Bugs](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-matomo-develop&metric=bugs)](https://sonarqube.eea.europa.eu/dashboard?id=volto-matomo-develop)
+[![Duplicated Lines (%)](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-matomo-develop&metric=duplicated_lines_density)](https://sonarqube.eea.europa.eu/dashboard?id=volto-matomo-develop)
+
+
 [Volto](https://github.com/plone/volto) add-on
 
 ## Features
