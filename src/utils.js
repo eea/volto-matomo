@@ -63,3 +63,9 @@ export const trackLink = (options) => {
     m.trackLink(options);
   });
 };
+
+export const pushInstruction = (name, ...args) => {
+  doWithMatomo((m) => {
+    m.pushInstruction(name, ...args);
+  });
+};
