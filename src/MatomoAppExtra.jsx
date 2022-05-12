@@ -2,12 +2,12 @@ import React from 'react';
 import { flattenToAppURL, getBaseUrl } from '@plone/volto/helpers';
 import { trackPageView } from './utils';
 
-export const MatomoAppExtra = ({ location, content, ...rest }) => {
-  const { pathname } = location;
+export const MatomoAppExtra = ({ location, content }) => {
+  const title = content?.title;
+  const pathname = location.pathname.replace(/\/$/, '');
 
   const href = flattenToAppURL(content?.['@id'] || '');
-  const title = content?.title;
-  const baseUrl = getBaseUrl(pathname) || '/';
+  const baseUrl = getBaseUrl(pathname) || '';
 
   React.useEffect(() => {
     if (href === pathname) {
