@@ -27,6 +27,13 @@ To configure it, either set the following variables:
 
 or `RAZZLE_MATOMO_SITE_ID` and `RAZZLE_MATOMO_URL` environment variables.
 
+With version 4.0.0+, you have the possibility to use a second matomo in parallel:
+
+- `settings.matomoSecondSiteId` (if not available it uses: `1`)
+- `settings.matomoSecondUrlBase` (if not available it uses: `https://matomo.eea.europa.eu/`)
+
+or `RAZZLE_MATOMO_SECOND_SITE_ID` and `RAZZLE_MATOMO_SECOND_URL` environment variables.
+
 ## API
 
 There are four exports in `utils.js` (which can be imported from `volto-matomo/utils`, including from other Volto addons):
@@ -58,7 +65,7 @@ The default behavior of volto-matomo is a call to `trackPageView` in `utils.js`,
    ],
 
    "dependencies": {
-       "@eeacms/volto-matomo": "1.0.0"
+       "@eeacms/volto-matomo": "4.0.0"
    }
    ```
 
