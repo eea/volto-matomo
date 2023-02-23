@@ -89,11 +89,11 @@ const doWithMatomo = (fn) => {
        * https://www.npmjs.com/package/@datapunt/matomo-tracker-react
        */
       _matomo.instance2 = createInstance({
-        secondUrlBase,
-        secondSiteId,
-        secondUserId,
-        secondTrackerUrl,
-        secondSrcUrl,
+        urlBase: secondUrlBase,
+        siteId: secondSiteId,
+        userId: secondUserId,
+        trackerUrl: secondTrackerUrl,
+        srcUrl: secondSrcUrl,
         // Add your own configuration
         ...(config.settings.matomo || {}),
       });
