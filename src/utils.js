@@ -11,7 +11,7 @@ const _matomo = {};
 
 const doWithMatomo = (fn) => {
   if (__SERVER__) return;
-  if (!(_matomo.instance1 || _matomo.instance2)) {
+  if (!_matomo.instance) {
     const siteId =
       window.env?.RAZZLE_MATOMO_SITE_ID || config.settings.matomoSiteId;
 
@@ -42,37 +42,27 @@ const doWithMatomo = (fn) => {
       config.settings.matomoSecondUrlBase ||
       urlBase;
 
-    const secondUserId =
-      window.env?.RAZZLE_MATOMO_SECOND_USER_ID ||
-      config.settings.matomoSecondUserId ||
-      userId;
+    // const secondUserId =
+    //   window.env?.RAZZLE_MATOMO_SECOND_USER_ID ||
+    //   config.settings.matomoSecondUserId ||
+    //   userId;
 
     const secondTrackerUrl =
       window.env?.RAZZLE_MATOMO_SECOND_TRACKER_URL ||
       config.settings.matomoSecondTrackerUrl ||
-      trackerUrl;
+      `${secondUrlBase}matomo.php`;
 
-    const secondSrcUrl =
-      window.env?.RAZZLE_MATOMO_SECOND_SRC_URL ||
-      config.settings.matomoSecondSrcUrl ||
-      srcUrl;
-
-    if (!(siteId || secondSiteId)) {
-      if (window.console) {
-        /* eslint-disable-next-line */
-        console.warn(
-          'Matomo SiteID is not defined, page actions will not be tracked',
-        );
-      }
-      return;
-    }
+    // const secondSrcUrl =
+    //   window.env?.RAZZLE_MATOMO_SECOND_SRC_URL ||
+    //   config.settings.matomoSecondSrcUrl ||
+    //   srcUrl;
 
     if (siteId) {
       /**
        * NOTE: check this link to see all the available options
        * https://www.npmjs.com/package/@datapunt/matomo-tracker-react
        */
-      _matomo.instance1 = createInstance({
+      _matomo.instance = createInstance({
         urlBase,
         siteId,
         userId,
@@ -81,27 +71,25 @@ const doWithMatomo = (fn) => {
         // Add your own configuration
         ...(config.settings.matomo || {}),
       });
-    }
 
-    if (secondSiteId) {
-      /**
-       * NOTE: check this link to see all the available options
-       * https://www.npmjs.com/package/@datapunt/matomo-tracker-react
-       */
-      _matomo.instance2 = createInstance({
-        urlBase: secondUrlBase,
-        siteId: secondSiteId,
-        userId: secondUserId,
-        trackerUrl: secondTrackerUrl,
-        srcUrl: secondSrcUrl,
-        // Add your own configuration
-        ...(config.settings.matomo || {}),
-      });
+      if (secondSiteId) {
+        _matomo.instance.pushInstruction(
+          'addTracker',
+          secondTrackerUrl,
+          secondSiteId,
+        );
+      }
+    } else {
+      if (window.console) {
+        /* eslint-disable-next-line */
+        console.warn(
+          'Matomo SiteID is not defined, page actions will not be tracked',
+        );
+      }
     }
   }
 
-  if (_matomo.instance1) fn(_matomo.instance1);
-  if (_matomo.instance2) fn(_matomo.instance2);
+  if (_matomo.instance) fn(_matomo.instance);
 };
 
 export const trackPageView = ({ href, ...options }) => {
