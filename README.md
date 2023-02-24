@@ -65,7 +65,7 @@ The default behavior of volto-matomo is a call to `trackPageView` in `utils.js`,
    ],
 
    "dependencies": {
-       "@eeacms/volto-matomo": "4.0.0"
+       "@eeacms/volto-matomo": "*"
    }
    ```
 
