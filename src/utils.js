@@ -42,20 +42,10 @@ const doWithMatomo = (fn) => {
       config.settings.matomoSecondUrlBase ||
       urlBase;
 
-    // const secondUserId =
-    //   window.env?.RAZZLE_MATOMO_SECOND_USER_ID ||
-    //   config.settings.matomoSecondUserId ||
-    //   userId;
-
     const secondTrackerUrl =
       window.env?.RAZZLE_MATOMO_SECOND_TRACKER_URL ||
       config.settings.matomoSecondTrackerUrl ||
       `${secondUrlBase}matomo.php`;
-
-    // const secondSrcUrl =
-    //   window.env?.RAZZLE_MATOMO_SECOND_SRC_URL ||
-    //   config.settings.matomoSecondSrcUrl ||
-    //   srcUrl;
 
     if (siteId) {
       /**
