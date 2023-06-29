@@ -1,6 +1,7 @@
 import React from 'react';
 import { flattenToAppURL, getBaseUrl } from '@plone/volto/helpers';
-import { trackPageView } from './utils';
+import { trackPageView, trackSiteSearch } from './utils';
+import { useSelector } from 'react-redux';
 
 export const MatomoAppExtra = ({ location, content }) => {
   const title = content?.title;
@@ -8,6 +9,7 @@ export const MatomoAppExtra = ({ location, content }) => {
 
   const href = flattenToAppURL(content?.['@id'] || '');
   const baseUrl = getBaseUrl(pathname) || '';
+  const { search } = useSelector((state) => state.router.location);
 
   React.useEffect(() => {
     if (href === pathname) {
@@ -19,7 +21,11 @@ export const MatomoAppExtra = ({ location, content }) => {
       const action = pathname.split('/')[pathname.split('/').length - 1];
       trackPageView({ href: pathname, documentTitle: action });
     }
-  }, [href, pathname, title, baseUrl]);
+    if (search.includes('?SearchableText=')) {
+      const value = search.replace('?SearchableText=', '');
+      trackSiteSearch({ keyword: value });
+    }
+  }, [href, pathname, title, baseUrl, search]);
 
   return <React.Fragment />;
 };
