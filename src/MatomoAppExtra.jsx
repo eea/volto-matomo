@@ -42,7 +42,7 @@ export const MatomoAppExtra = ({ location, content }) => {
       const action = pathname.split('/')[pathname.split('/').length - 1];
       trackPageView({ href: pathname, documentTitle: action });
     }
-    if (search.includes('SearchableText') && searchableText) {
+    if (searchableText) {
       trackSiteSearch({ keyword: searchableText });
     }
   }, [href, pathname, title, baseUrl, search, query]);
