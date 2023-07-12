@@ -91,6 +91,12 @@ export const trackPageView = ({ href, ...options }) => {
   });
 };
 
+export const setCustomUrl = (url) => {
+  doWithMatomo((m) => {
+    m.pushInstruction('setCustomUrl', url);
+  });
+};
+
 export const trackEvent = (options) => {
   doWithMatomo((m) => {
     m.trackEvent(options);

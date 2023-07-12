@@ -1,6 +1,6 @@
 import React from 'react';
 import { flattenToAppURL, getBaseUrl } from '@plone/volto/helpers';
-import { trackPageView } from './utils';
+import { trackPageView, setCustomUrl } from './utils';
 
 export const MatomoAppExtra = ({ location, content }) => {
   const title = content?.title;
@@ -14,13 +14,15 @@ export const MatomoAppExtra = ({ location, content }) => {
     if (href === pathname) {
       // a document (content)
       trackPageView({ href: href + query, documentTitle: title });
+      setCustomUrl(window.location.pathname.substr(1) + location.search);
     }
     if (baseUrl !== pathname) {
       // a route (utility view)
       const action = pathname.split('/')[pathname.split('/').length - 1];
       trackPageView({ href: pathname + query, documentTitle: action });
+      setCustomUrl(window.location.pathname.substr(1) + location.search);
     }
-  }, [href, pathname, title, baseUrl, query]);
+  }, [href, pathname, title, baseUrl, query, location.search]);
 
   return <React.Fragment />;
 };
