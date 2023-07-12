@@ -20,7 +20,7 @@ export const MatomoAppExtra = ({ location, content }) => {
       const action = pathname.split('/')[pathname.split('/').length - 1];
       trackPageView({ href: pathname + query, documentTitle: action });
     }
-  }, [href, pathname, title, baseUrl, query, location.search]);
+  }, [href, pathname, title, baseUrl, query]);
 
   return <React.Fragment />;
 };
