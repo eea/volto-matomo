@@ -13,12 +13,12 @@ export const MatomoAppExtra = ({ location, content }) => {
   React.useEffect(() => {
     if (href === pathname) {
       // a document (content)
-      trackPageView({ href: href.concat(query), documentTitle: title });
+      trackPageView({ href: href + query, documentTitle: title });
     }
     if (baseUrl !== pathname) {
       // a route (utility view)
       const action = pathname.split('/')[pathname.split('/').length - 1];
-      trackPageView({ href: pathname.concat(query), documentTitle: action });
+      trackPageView({ href: pathname + query, documentTitle: action });
     }
   }, [href, pathname, title, baseUrl, query]);
 
