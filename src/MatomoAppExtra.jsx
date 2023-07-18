@@ -5,6 +5,8 @@ import { useSelector } from 'react-redux';
 
 export const MatomoAppExtra = ({ location, content }) => {
   const title = content?.title;
+  const pathname = location.pathname.replace(/\/$/, '');
+  const query = location?.search ?? '';
 
   const href = flattenToAppURL(content?.['@id'] || '');
   const { search, query, pathname } = useSelector(
@@ -35,12 +37,12 @@ export const MatomoAppExtra = ({ location, content }) => {
     const searchableText = extractSearchableText(query);
     if (href === pathname) {
       // a document (content)
-      trackPageView({ href, documentTitle: title });
+      trackPageView({ href: href + query, documentTitle: title });
     }
     if (baseUrl !== pathname) {
       // a route (utility view)
       const action = pathname.split('/')[pathname.split('/').length - 1];
-      trackPageView({ href: pathname, documentTitle: action });
+      trackPageView({ href: pathname + query, documentTitle: action });
     }
     if (searchableText) {
       trackSiteSearch({ keyword: searchableText });
