@@ -1,7 +1,6 @@
 import React from 'react';
 import { flattenToAppURL, getBaseUrl } from '@plone/volto/helpers';
-import { trackPageView, trackSiteSearch } from './utils';
-import { useSelector } from 'react-redux';
+import { trackPageView } from './utils';
 
 export const MatomoAppExtra = ({ location, content }) => {
   const title = content?.title;
@@ -9,32 +8,9 @@ export const MatomoAppExtra = ({ location, content }) => {
   const query = location?.search ?? '';
 
   const href = flattenToAppURL(content?.['@id'] || '');
-  const { search, query, pathname } = useSelector(
-    (state) => state.router.location,
-  );
   const baseUrl = getBaseUrl(pathname) || '';
 
-  const extractSearchableText = (query) => {
-    // Handle catalog-querystring-like queries, which are
-    // send in a JSON object
-    if (query?.query) {
-      let parsed = JSON.parse(unescape(query.query));
-      let items = parsed.filter((item) => item.i === 'SearchableText');
-      if (items.length === 1) {
-        return items[0].v;
-      }
-    }
-
-    // check if there is an explicit SearchableText parameter
-    // in the querystring
-    if (query?.SearchableText) {
-      return query.SearchableText;
-    }
-
-    return '';
-  };
   React.useEffect(() => {
-    const searchableText = extractSearchableText(query);
     if (href === pathname) {
       // a document (content)
       trackPageView({ href: href + query, documentTitle: title });
@@ -44,10 +20,7 @@ export const MatomoAppExtra = ({ location, content }) => {
       const action = pathname.split('/')[pathname.split('/').length - 1];
       trackPageView({ href: pathname + query, documentTitle: action });
     }
-    if (searchableText) {
-      trackSiteSearch({ keyword: searchableText });
-    }
-  }, [href, pathname, title, baseUrl, search, query]);
+  }, [href, pathname, title, baseUrl, query]);
 
   return <React.Fragment />;
 };
