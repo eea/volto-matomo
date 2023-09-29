@@ -14,11 +14,9 @@
 [![Bugs](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-matomo-develop&metric=bugs)](https://sonarqube.eea.europa.eu/dashboard?id=volto-matomo-develop)
 [![Duplicated Lines (%)](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-matomo-develop&metric=duplicated_lines_density)](https://sonarqube.eea.europa.eu/dashboard?id=volto-matomo-develop)
 
-[Volto](https://github.com/plone/volto) add-on
+[Volto](https://github.com/plone/volto) add-on that integrates [Matomo](https://matomo.org/) with [Volto](https://github.com/plone/volto) sites. At this moment there is a very basic integration that just pings Matomo on each router location change.
 
-## Features
-
-Integrates [Matomo](https://matomo.org/) with Volto sites. At this moment there is a very basic integration that just pings Matomo on each router location change.
+## How to
 
 To configure it, either set the following variables:
 
@@ -49,12 +47,43 @@ The default behavior of volto-matomo is a call to `trackPageView` in `utils.js`,
 
 ## Getting started
 
-1. Create new volto project if you don't already have one:
+### Try volto-matomo with Docker
+
+      git clone https://github.com/eea/volto-matomo.git
+      cd volto-matomo
+      make
+      make start
+
+Go to http://localhost:3000
+
+### Add volto-matomo to your Volto project
+
+1. Make sure you have a [Plone backend](https://plone.org/download) up-and-running at http://localhost:8080/Plone
+
+   ```Bash
+   docker compose up backend
+   ```
+
+1. Start Volto frontend
+
+* If you already have a volto project, just update `package.json`:
+
+   ```JSON
+   "addons": [
+       "@eeacms/volto-matomo"
+   ],
+
+   "dependencies": {
+       "@eeacms/volto-matomo": "*"
+   }
+   ```
+
+* If not, create one:
 
    ```
-   $ npm install -g @plone/create-volto-app
-   $ create-volto-app my-volto-project
-   $ cd my-volto-project
+   npm install -g yo @plone/generator-volto
+   yo @plone/volto my-volto-project --canary --addon @eeacms/volto-matomo
+   cd my-volto-project
    ```
 
 1. Update `package.json`:
