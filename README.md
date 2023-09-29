@@ -86,23 +86,11 @@ Go to http://localhost:3000
    cd my-volto-project
    ```
 
-1. Update `package.json`:
-
-   ```json
-   "addons": [
-       "@eeacms/volto-matomo"
-   ],
-
-   "dependencies": {
-       "@eeacms/volto-matomo": "*"
-   }
-   ```
-
 1. Install new add-ons and restart Volto:
 
    ```
-   $ yarn
-   $ yarn start
+   yarn
+   yarn start
    ```
 
 1. Go to http://localhost:3000
