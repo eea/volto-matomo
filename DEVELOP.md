@@ -28,32 +28,16 @@
 
 Before starting make sure your development environment is properly set. See [Volto Developer Documentation](https://docs.voltocms.com/getting-started/install/)
 
-1. Install `mrs.developer`
+1.  Make sure you have installed `yo`, `@plone/generator-volto` and `mrs-developer`
 
-        $ npm install -g mrs.developer
+        npm install -g yo @plone/generator-volto mrs-developer
 
-1. Install `@plone/create-volto-app`
+1.  Create new volto app
 
-        $ npm install -g @plone/create-volto-app
+        yo @plone/volto my-volto-project --addon @eeacms/volto-matomo --skip-install
+        cd my-volto-project
 
-1. Create new volto app
-
-        $ create-volto-app my-volto-project
-        $ cd my-volto-project
-
-1. Update `package.json` with the following information:
-
-        {
-            "scripts": {
-                "develop": "missdev --config=jsconfig.json --output=addons"
-            },
-
-            "addons": [
-                "@eeacms/volto-matomo"
-            ],
-        }
-
-1. Add the following to `mrs.developer.json`:
+1.  Add the following to `mrs.developer.json`:
 
         {
             "volto-matomo": {
@@ -64,12 +48,12 @@ Before starting make sure your development environment is properly set. See [Vol
             }
         }
 
-1. Install
+1.  Install
 
-        $ make develop
-        $ yarn
+        make develop
+        yarn
 
-1. Start backend
+1.  Start backend
 
         docker run --pull always -it --rm --name plone -p 8080:8080 -e SITE=Plone plone/plone-backend
 
@@ -77,15 +61,15 @@ Before starting make sure your development environment is properly set. See [Vol
 
     ...you can also check http://localhost:8080/Plone
 
-1. Start frontend
+1.  Start frontend
 
-        $ yarn start
+        yarn start
 
-1. Go to http://localhost:3000
+1.  Go to http://localhost:3000
 
-1. Happy hacking!
+1.  Happy hacking!
 
-        $ cd src/addons/volto-matomo/
+        cd src/addons/volto-matomo/
 
 ## Cypress
 
