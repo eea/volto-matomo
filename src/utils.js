@@ -115,7 +115,6 @@ const doWithMatomo = (fn, matomoTrackerId) => {
     }
   }
 
-  console.log(matomoTrackerId);
   if (_matomo[matomoTrackerId]) fn(_matomo[matomoTrackerId]);
 };
 
