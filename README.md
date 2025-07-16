@@ -32,7 +32,7 @@ With version 4.0.0+, you have the possibility to use a second matomo in parallel
 
 or `RAZZLE_MATOMO_SECOND_SITE_ID` and `RAZZLE_MATOMO_SECOND_URL` environment variables.
 
-With version 5.1.0 it is possible to have customize all the settings based on the pathname.
+With version 6.0.0 it is possible to have custom matomo settings based on the pathname.
 
 - `settings.matomoTrackerIdFn` is function with signature `(pathname) => trackerId:string`
 - `settings.matomoTrackers` is a mapping of `trackerId`s to `matomo` setting objects (all the keys for `config.settings` can be added to this object).
