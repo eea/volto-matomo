@@ -32,6 +32,11 @@ With version 4.0.0+, you have the possibility to use a second matomo in parallel
 
 or `RAZZLE_MATOMO_SECOND_SITE_ID` and `RAZZLE_MATOMO_SECOND_URL` environment variables.
 
+With version 6.0.0 it is possible to have custom matomo settings based on the pathname.
+
+- `settings.matomoTrackerIdFn` is function with signature `(pathname) => trackerId:string`
+- `settings.matomoTrackers` is a mapping of `trackerId`s to `matomo` setting objects (all the keys for `config.settings` can be added to this object).
+
 ## API
 
 There are four exports in `utils.js` (which can be imported from `volto-matomo/utils`, including from other Volto addons):
@@ -66,25 +71,25 @@ Go to http://localhost:3000
 
 1. Start Volto frontend
 
-* If you already have a volto project, just update `package.json`:
+- If you already have a volto project, just update `package.json`:
 
-   ```JSON
-   "addons": [
-       "@eeacms/volto-matomo"
-   ],
+  ```JSON
+  "addons": [
+      "@eeacms/volto-matomo"
+  ],
 
-   "dependencies": {
-       "@eeacms/volto-matomo": "*"
-   }
-   ```
+  "dependencies": {
+      "@eeacms/volto-matomo": "*"
+  }
+  ```
 
-* If not, create one:
+- If not, create one:
 
-   ```
-   npm install -g yo @plone/generator-volto
-   yo @plone/volto my-volto-project --canary --addon @eeacms/volto-matomo
-   cd my-volto-project
-   ```
+  ```
+  npm install -g yo @plone/generator-volto
+  yo @plone/volto my-volto-project --canary --addon @eeacms/volto-matomo
+  cd my-volto-project
+  ```
 
 1. Install new add-ons and restart Volto:
 

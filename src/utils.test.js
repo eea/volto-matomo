@@ -83,7 +83,7 @@ describe('Matomo module', () => {
   it('should call pushInstruction with the provided name and args', () => {
     const name = 'addTracker';
     const args = ['url', 'siteId'];
-    matomoUtils.pushInstruction(name, ...args);
+    matomoUtils.pushInstruction(name, undefined, ...args);
     expect(mockInstance.pushInstruction).toHaveBeenCalledWith(name, ...args);
   });
 
