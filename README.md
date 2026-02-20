@@ -3,16 +3,16 @@
 [![Releases](https://img.shields.io/github/v/release/eea/volto-matomo)](https://github.com/eea/volto-matomo/releases)
 
 [![Pipeline](https://ci.eionet.europa.eu/buildStatus/icon?job=volto-addons%2Fvolto-matomo%2Fmaster&subject=master)](https://ci.eionet.europa.eu/view/Github/job/volto-addons/job/volto-matomo/job/master/display/redirect)
-[![Lines of Code](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-matomo-master&metric=ncloc)](https://sonarqube.eea.europa.eu/dashboard?id=volto-matomo-master)
-[![Coverage](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-matomo-master&metric=coverage)](https://sonarqube.eea.europa.eu/dashboard?id=volto-matomo-master)
-[![Bugs](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-matomo-master&metric=bugs)](https://sonarqube.eea.europa.eu/dashboard?id=volto-matomo-master)
-[![Duplicated Lines (%)](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-matomo-master&metric=duplicated_lines_density)](https://sonarqube.eea.europa.eu/dashboard?id=volto-matomo-master)
+[![Lines of Code](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-matomo&metric=ncloc)](https://sonarqube.eea.europa.eu/dashboard?id=volto-matomo)
+[![Coverage](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-matomo&metric=coverage)](https://sonarqube.eea.europa.eu/dashboard?id=volto-matomo)
+[![Bugs](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-matomo&metric=bugs)](https://sonarqube.eea.europa.eu/dashboard?id=volto-matomo)
+[![Duplicated Lines (%)](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-matomo&metric=duplicated_lines_density)](https://sonarqube.eea.europa.eu/dashboard?id=volto-matomo)
 
 [![Pipeline](https://ci.eionet.europa.eu/buildStatus/icon?job=volto-addons%2Fvolto-matomo%2Fdevelop&subject=develop)](https://ci.eionet.europa.eu/view/Github/job/volto-addons/job/volto-matomo/job/develop/display/redirect)
-[![Lines of Code](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-matomo-develop&metric=ncloc)](https://sonarqube.eea.europa.eu/dashboard?id=volto-matomo-develop)
-[![Coverage](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-matomo-develop&metric=coverage)](https://sonarqube.eea.europa.eu/dashboard?id=volto-matomo-develop)
-[![Bugs](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-matomo-develop&metric=bugs)](https://sonarqube.eea.europa.eu/dashboard?id=volto-matomo-develop)
-[![Duplicated Lines (%)](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-matomo-develop&metric=duplicated_lines_density)](https://sonarqube.eea.europa.eu/dashboard?id=volto-matomo-develop)
+[![Lines of Code](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-matomo&branch=develop&metric=ncloc)](https://sonarqube.eea.europa.eu/dashboard?id=volto-matomo&branch=develop)
+[![Coverage](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-matomo&branch=develop&metric=coverage)](https://sonarqube.eea.europa.eu/dashboard?id=volto-matomo&branch=develop)
+[![Bugs](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-matomo&branch=develop&metric=bugs)](https://sonarqube.eea.europa.eu/dashboard?id=volto-matomo&branch=develop)
+[![Duplicated Lines (%)](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-matomo&branch=develop&metric=duplicated_lines_density)](https://sonarqube.eea.europa.eu/dashboard?id=volto-matomo&branch=develop)
 
 [Volto](https://github.com/plone/volto) add-on that integrates [Matomo](https://matomo.org/) with [Volto](https://github.com/plone/volto) sites. At this moment there is a very basic integration that just pings Matomo on each router location change.
 
