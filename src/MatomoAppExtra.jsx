@@ -1,6 +1,7 @@
 import React from 'react';
 import config from '@plone/volto/registry';
-import { flattenToAppURL, getBaseUrl } from '@plone/volto/helpers';
+import { flattenToAppURL } from '@plone/volto/helpers/Url/Url';
+import { getBaseUrl } from '@plone/volto/helpers/Url/Url';
 import { trackPageView } from './utils';
 
 export const MatomoAppExtra = ({ location, content }) => {
