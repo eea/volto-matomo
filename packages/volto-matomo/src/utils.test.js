@@ -2,16 +2,16 @@ import * as matomoUtils from './utils';
 import { createInstance } from '@datapunt/matomo-tracker-react';
 import config from '@plone/volto/registry';
 
-jest.mock('@datapunt/matomo-tracker-react', () => ({
-  createInstance: jest.fn(),
+vi.mock('@datapunt/matomo-tracker-react', () => ({
+  createInstance: vi.fn(),
 }));
 
 const mockInstance = {
-  trackPageView: jest.fn(),
-  trackEvent: jest.fn(),
-  trackSiteSearch: jest.fn(),
-  trackLink: jest.fn(),
-  pushInstruction: jest.fn(),
+  trackPageView: vi.fn(),
+  trackEvent: vi.fn(),
+  trackSiteSearch: vi.fn(),
+  trackLink: vi.fn(),
+  pushInstruction: vi.fn(),
 };
 
 global.__SERVER__ = false;
@@ -20,7 +20,7 @@ describe('Matomo module', () => {
   const originalConfig = JSON.parse(JSON.stringify(config));
 
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
     createInstance.mockReturnValue(mockInstance);
   });
 
@@ -32,7 +32,7 @@ describe('Matomo module', () => {
 
   it('should not create an instance or track a page view if siteId is not present', () => {
     config.settings.matomoSiteId = null;
-    global.console = { warn: jest.fn() };
+    global.console = { warn: vi.fn() };
 
     matomoUtils.trackPageView({ href: '/test' });
     expect(createInstance).not.toHaveBeenCalled();
