@@ -40,6 +40,26 @@ Note that the Matomo instance is behind the scenes lazy-loaded and cached.
 
 The default behavior of volto-matomo is a call to `trackPageView` in `utils.js`, with the `href` and `documentTitle` options, on every URL change as recorded by the `AppExtras` component in Volto. The `href` is taken from `props.content['@id']` received by the `MatomoAppExtra.jsx` component. The `utils.js` file exposes just a part of the Matomo React API. If you wish to extend it or to understand it better, [this link](https://github.com/Amsterdam/matomo-tracker/tree/master/packages/react) might be helpful.
 
+## Upgrade
+
+### Upgrading to 8.x
+
+> This version requires `Volto 18` or `Volto 19` and Node.js 22.
+
+The add-on keeps the same settings shape, the same defaults and the same moment of script injection,
+so a site that upgrades keeps tracking exactly as before. The release adds Volto 19 support and moves
+the repository to the Volto 19 layout, where the published package lives in
+`packages/volto-matomo`.
+
+#### Breaking changes
+
+- **Node.js 22 or newer is required** (`engines.node >= 22`), 7.x declared no engine.
+- **React 18 is required.** The package declares `react` and `react-dom` as `^18.2.0` peers, 7.x
+  declared no peers.
+- **The package no longer ships the repository tooling.** The Jest setup and the Docker files are
+  gone and the unit tests moved to Vitest next to the add-on, so nothing a site imports was
+  removed.
+
 ## Requirements
 
 ### Backend
